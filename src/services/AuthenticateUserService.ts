@@ -1,7 +1,9 @@
 import { getCustomRepository } from 'typeorm'
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
+
 import { UsersRepositories } from '../repositories/UsersRepositories'
+import authConfigs from '../configs/auth'
 
 interface IAuthenticateRequest {
   email: string;
@@ -30,9 +32,9 @@ class AuthenticateUserService {
 
     const token = sign({
       email: user.email
-    }, 'eb632b8590e9f095b2774c28a58c07f5', {
+    }, authConfigs.jwt.secret, {
       subject: user.id.toString(),
-      expiresIn: '1d'
+      expiresIn: authConfigs.jwt.expiresIn
     })
 
     return { token }
