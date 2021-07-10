@@ -8,7 +8,7 @@ import {
   BeforeUpdate,
   PrimaryGeneratedColumn
 } from 'typeorm'
-import { hash } from 'bcrypt'
+import { hash } from 'bcryptjs'
 
 @Entity('users')
 class User {
