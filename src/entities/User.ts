@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import {
   Entity,
   Column,
@@ -6,9 +5,12 @@ import {
   UpdateDateColumn,
   BeforeInsert,
   BeforeUpdate,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
+  OneToMany
 } from 'typeorm'
 import { hash } from 'bcryptjs'
+
+import { Favorite } from './Favorite'
 
 @Entity('users')
 class User {
@@ -23,6 +25,9 @@ class User {
 
   @Column()
   password: string;
+
+  @OneToMany(() => Favorite, favorite => favorite.user)
+  favorites: Favorite[]
 
   @CreateDateColumn()
   created_at: Date;

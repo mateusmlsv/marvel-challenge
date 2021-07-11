@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Request, Response } from 'express'
 import { UpdateUserService } from '../services/UpdateUserService'
 
