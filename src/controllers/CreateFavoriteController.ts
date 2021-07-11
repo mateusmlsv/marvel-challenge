@@ -8,9 +8,9 @@ class CreateFavoriteController {
 
     const createFavoriteService = new CreateFavoriteService()
 
-    const user = await createFavoriteService.execute({ user_id: parseInt(user_id), favorite_type, marvel_id, thumbnail })
+    const favorite = await createFavoriteService.execute({ user_id: parseInt(user_id), favorite_type, marvel_id, thumbnail })
 
-    return response.json(user)
+    return response.json(favorite)
   }
 }
 
