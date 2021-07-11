@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img alt="Preview" src="./.github/marvel.png">
+  <img alt="Preview" src="./github/marvel.png">
 </p>
 
 ## ✨ Tecnologias
