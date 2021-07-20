@@ -37,7 +37,9 @@ class AuthenticateUserService {
       expiresIn: authConfigs.jwt.expiresIn
     })
 
-    return { token }
+    delete user.password
+
+    return { token, user }
   }
 }
 

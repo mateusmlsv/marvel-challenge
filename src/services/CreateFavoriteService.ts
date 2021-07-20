@@ -24,7 +24,8 @@ class CreateFavoriteService {
     const favoriteAlreadyExists = await favoritesRepositories.findOne({ user, marvel_id })
 
     if (favoriteAlreadyExists) {
-      throw new Error('This favorite already exists')
+      await favoritesRepositories.delete(favoriteAlreadyExists)
+      return true
     }
 
     const favorite = favoritesRepositories.create({
